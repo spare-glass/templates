@@ -1,0 +1,15 @@
+open
+shot open
+crown -1
+crown -1
+crown -1
+crown -1
+shot one-minute
+click
+tick 3000
+shot running
+click
+shot paused
+click
+tick 60000
+shot done

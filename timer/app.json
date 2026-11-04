@@ -1,0 +1,15 @@
+{
+ "id": "dev.yourname.timer",
+ "name": "倒计时",
+ "version_name": "1.0.0",
+ "version": 1,
+ "data_version": 1,
+ "description": "转表冠调时长（1–99 分钟），单击开始 / 暂停，进度条显示走了多少。",
+ "permissions": [],
+ "requests": [],
+ "ui": [
+  { "id": "time", "type": "text", "x": 0, "y": 36, "w": 540, "h": 100, "size": 88, "bold": true, "align": "center", "text": "05:00" },
+  { "id": "bar", "type": "bar", "x": 70, "y": 146, "w": 400, "h": 8, "radius": 4, "value": 0 },
+  { "id": "hint", "type": "text", "x": 0, "y": 162, "w": 540, "h": 30, "size": 22, "align": "center", "gray": 130, "text": "" }
+ ]
+}

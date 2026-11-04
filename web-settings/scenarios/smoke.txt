@@ -1,0 +1,6 @@
+open
+shot open
+reply min=40 snd=0 ttl=读书 rev=1
+shot applied
+reply _err=net
+shot offline

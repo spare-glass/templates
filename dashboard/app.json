@@ -1,0 +1,19 @@
+{
+ "id": "dev.yourname.dashboard",
+ "name": "每日一句",
+ "version_name": "1.0.0",
+ "version": 1,
+ "data_version": 1,
+ "description": "每 10 分钟从平台托管数据读一句话显示；离线时显示上次的内容。单击立即刷新。",
+ "permissions": ["network:apps.spare.cool"],
+ "requests": [
+  { "name": "quote", "kind": "http_json", "url": "https://apps.spare.cool/dev.yourname.dashboard/kv/today",
+    "fields": { "q1": "line1", "q2": "line2", "by": "by" } }
+ ],
+ "ui": [
+  { "id": "l1", "type": "text", "x": 20, "y": 34, "w": 500, "h": 44, "size": 36, "bold": true, "align": "center", "text": "" },
+  { "id": "l2", "type": "text", "x": 20, "y": 84, "w": 500, "h": 44, "size": 36, "bold": true, "align": "center", "text": "" },
+  { "id": "by", "type": "text", "x": 20, "y": 136, "w": 500, "h": 28, "size": 22, "align": "center", "gray": 140, "text": "" },
+  { "id": "st", "type": "text", "x": 20, "y": 168, "w": 500, "h": 26, "size": 20, "align": "center", "gray": 100, "text": "" }
+ ]
+}

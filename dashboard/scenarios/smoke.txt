@@ -1,0 +1,7 @@
+open
+shot loading
+reply q1=今天也要 q2=好好喝水 by=——Spare
+shot loaded
+click
+reply _err=net
+shot offline

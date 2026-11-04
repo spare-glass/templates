@@ -1,0 +1,18 @@
+{
+ "id": "dev.yourname.settings",
+ "name": "网页设置",
+ "version_name": "1.0.0",
+ "version": 1,
+ "data_version": 1,
+ "description": "专注计时；在手机浏览器的托管网页里改时长、提示音和标题，所有手机都能用。",
+ "permissions": ["network:apps.spare.cool"],
+ "requests": [
+  { "name": "cfg", "kind": "http_json", "url": "https://apps.spare.cool/dev.yourname.settings/relay/{arg}",
+    "fields": { "min": "minutes", "snd": "sound", "ttl": "title", "rev": "rev" } }
+ ],
+ "ui": [
+  { "id": "title", "type": "text", "x": 0, "y": 20, "w": 540, "h": 36, "size": 28, "align": "center", "gray": 160, "text": "专注" },
+  { "id": "time", "type": "text", "x": 0, "y": 60, "w": 540, "h": 96, "size": 88, "bold": true, "align": "center", "text": "25:00" },
+  { "id": "hint", "type": "text", "x": 0, "y": 160, "w": 540, "h": 30, "size": 22, "align": "center", "gray": 120, "text": "" }
+ ]
+}

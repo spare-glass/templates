@@ -1,0 +1,15 @@
+open
+shot open
+control minutes 5
+shot five
+control style 1
+shot dim
+click
+tick 300000
+tick 800
+shot finished
+panel
+control reset
+panel
+tick 800
+shot reset

@@ -1,0 +1,34 @@
+<!doctype html>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>专注计时 · 设置</title>
+<style>body{font:17px system-ui;max-width:420px;margin:24px auto;padding:0 16px}label{display:block;margin:14px 0}
+input:not([type=checkbox]){width:100%;font:inherit;padding:8px;box-sizing:border-box}button{font:inherit;padding:10px 18px}</style>
+<label>设置码（眼镜上显示的 8 位）<input id="code" autocapitalize="characters" autocomplete="off"></label>
+<label>专注时长（分钟）<input id="minutes" type="number" min="1" max="120" value="25"></label>
+<label><input id="sound" type="checkbox" checked> 提示音</label>
+<label>标题<input id="title" maxlength="20" value="专注"></label>
+<button id="save">保存到眼镜</button>
+<p id="msg"></p>
+<script>
+const $ = id => document.getElementById(id);
+const KEY = 'dev.yourname.settings.code';       // 所有应用的网页在同一个域名下：键名带上应用 id
+const code = () => $('code').value.trim().toUpperCase();
+try { $('code').value = localStorage.getItem(KEY) || ''; } catch (e) {}
+async function load() {
+  if (!code()) return;
+  const r = await fetch(`relay/${code()}`);
+  if (!r.ok) { $('msg').textContent = '还没有保存过设置（或已超过 12 小时），改好后点保存'; return; }
+  const d = await r.json();
+  $('minutes').value = d.minutes ?? 25; $('sound').checked = d.sound !== 0; $('title').value = d.title ?? '';
+}
+$('code').onchange = load; load();
+$('save').onclick = async () => {
+  try { localStorage.setItem(KEY, code()); } catch (e) {}
+  const body = { minutes: +$('minutes').value, sound: $('sound').checked ? 1 : 0, title: $('title').value,
+                 rev: String(Date.now()) };
+  const r = await fetch(`relay/${code()}`, { method: 'PUT', headers: { 'Content-Type': 'application/json' },
+                                              body: JSON.stringify(body) });
+  $('msg').textContent = r.ok ? '已保存，眼镜几秒内更新（眼镜上要开着这个应用）'
+                              : '保存失败：' + ((await r.json()).error?.message || r.status);
+};
+</script>

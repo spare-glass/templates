@@ -1,0 +1,7 @@
+clock 545
+open
+shot loading
+reply temp=21 text=多云 icon=cloudy
+shot loaded
+tick 10000
+shot later

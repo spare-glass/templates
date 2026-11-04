@@ -1,0 +1,11 @@
+open
+shot open
+crown +1
+crown +1
+shot crown
+click
+tick 400
+shot click
+close
+open
+shot reopen

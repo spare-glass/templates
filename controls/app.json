@@ -1,0 +1,20 @@
+{
+ "id": "dev.yourname.controls",
+ "name": "专注",
+ "version_name": "1.0.0",
+ "version": 1,
+ "data_version": 1,
+ "description": "番茄专注计时。手机上的控制面板调时长和样式、看累计完成数、一键清零。",
+ "permissions": [],
+ "requests": [{ "name": "setctl", "kind": "control_set" }],
+ "controls": [
+  { "id": "minutes", "type": "slider", "label": "专注时长", "unit": "分钟", "min": 5, "max": 60, "step": 5, "default": 25 },
+  { "id": "style", "type": "picker", "label": "数字亮度", "options": ["亮", "暗"], "default": 0 },
+  { "id": "done", "type": "label", "label": "累计完成", "default": "0" },
+  { "id": "reset", "type": "button", "label": "清零完成数", "confirm": "确定把累计完成数清零？" }
+ ],
+ "ui": [
+  { "id": "time", "type": "text", "x": 0, "y": 40, "w": 540, "h": 100, "size": 88, "bold": true, "align": "center", "text": "25:00" },
+  { "id": "hint", "type": "text", "x": 0, "y": 158, "w": 540, "h": 30, "size": 22, "align": "center", "gray": 130, "text": "" }
+ ]
+}

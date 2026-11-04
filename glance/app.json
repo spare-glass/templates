@@ -1,0 +1,14 @@
+{
+ "id": "dev.yourname.glance",
+ "name": "时间天气",
+ "version_name": "1.0.0",
+ "version": 1,
+ "data_version": 1,
+ "description": "瞄一眼就够：大字时间 + 当地天气，半小时更新一次天气。",
+ "permissions": ["location"],
+ "requests": [{ "name": "wx", "kind": "weather" }],
+ "ui": [
+  { "id": "time", "type": "text", "x": 0, "y": 18, "w": 540, "h": 104, "size": 96, "bold": true, "align": "center", "text": "--:--" },
+  { "id": "cond", "type": "text", "x": 0, "y": 146, "w": 540, "h": 40, "size": 30, "align": "center", "gray": 150, "text": "" }
+ ]
+}
